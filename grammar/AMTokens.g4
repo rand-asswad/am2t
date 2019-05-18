@@ -1,10 +1,12 @@
 lexer grammar AMTokens;
 
 /* main tokens */
+
 U	   : 'sqrt'|'abs'|'floor'|'ceil'|'norm'|'vec'|'hat'|'bar'|'ul'|'dot'|'ddot'|'cancel'|'ubrace'|'obrace';
 B	   : 'root'|'overset'|'underset'|'frac';
 L	   : '('|'['|'{:'|'{'|'(:'|'<<';
 R	   : ')'|']'|':}'|'}'|':)'|'>>';
+
 WS	   : [ \t\n] -> skip;
 
 /* constant tokens */

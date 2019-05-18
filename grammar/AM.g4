@@ -2,6 +2,7 @@ grammar AM;
 import AMTokens;
 
 /* labeled tokens */
+
 OVER    : '/' ;
 SUB     : '_' ;
 SUPER   : '^' ;
