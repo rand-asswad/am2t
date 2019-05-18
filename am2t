@@ -1,0 +1,39 @@
+#!/bin/python3
+
+from argparse import ArgumentParser
+from os.path import splitext
+from subprocess import Popen, PIPE
+
+def init_parser():
+    parser = ArgumentParser(description="AsciiMath to LaTeX convertor tool")
+    parser.add_argument('-i', '--input', help="Input AsciiMath file")
+    parser.add_argument('-o', '--output', help="Output file name (default: input.katex)")
+    parser.add_argument('-no', '--nooutput', help="Suppress katex file output", action='store_true')
+    parser.add_argument('-t', '--treefile', help="Output parse tree file name (default: input.png)")
+    parser.add_argument('-nt', '--notree', help="Suppress parse tree image output", action='store_true')
+    return parser
+
+def run_am2t(args):
+    cmd = ['java', '-cp', 'out:lib/antlr-4.7.2-complete.jar', 'AsciiMath.Translator']
+    cmd += args
+    print(' '.join(cmd))
+    process = Popen(cmd, stdout=PIPE)
+    return process.communicate()
+
+if __name__ == "__main__":
+    parser = init_parser()
+    args = parser.parse_args()
+    argv = []
+    if args.input:
+        inputfile = args.input
+        argv.append(inputfile)
+        basename = splitext(inputfile)[0]
+        if args.output:
+            argv.append(args.output)
+        elif not args.nooutput:
+            argv.append(basename + ".katex")
+        if args.treefile:
+            argv.append(args.treefile)
+        elif not args.notree:
+            argv.append(basename + ".png")
+    output, error = run_am2t(argv)

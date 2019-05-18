@@ -1,13 +1,5 @@
 # Makefile for Antlr4 project
 
-# Parse run arguments
-ifeq (run,$(firstword $(MAKECMDGOALS)))
-  # use the rest as arguments for "run"
-  RUN_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
-  # turn given args into do-nothing targets
-  $(eval $(RUN_ARGS):;@:)
-endif
-
 # Directories
 SRC_DIR = src
 OUT_DIR = out
@@ -37,12 +29,11 @@ antlr:
 	$(ANTLR_GEN) -o $(GEN_DIR) -package $(ANTLR_PKG) $(AFLAGS) -lib $(GRAM_DIR) $(GRAM_PATH)
 
 compile: antlr
-	#javac -cp $(SRC_DIR):$(JAR) -d $(OUT_DIR) $(GEN_DIR)/$(GRAMMAR)*.java
 	javac -cp $(SRC_DIR):$(JAR) -d $(OUT_DIR) $(JAVA_MAIN)
 
-.PHONY: run
 run: compile
-	java -cp $(OUT_DIR):$(JAR) $(PACKAGE).Translator $(RUN_ARGS)
+	# shouldn't have a run in makefile
+	# java -cp $(OUT_DIR):$(JAR) $(PACKAGE).Translator $(RUN_ARGS)
 
 clean:
 	rm -r $(GEN_DIR) $(OUT_DIR)
