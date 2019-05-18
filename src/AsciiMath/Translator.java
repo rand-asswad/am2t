@@ -11,6 +11,7 @@ import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.ParseTree;
 
 /* java imports */
+import java.io.*;
 import java.util.Arrays;
 import java.util.List;
 
@@ -33,14 +34,23 @@ public class Translator {
         IO.saveTreeImg(viewer, fileName);
     }
 
+    private static void exportTex(String fileName, String tex) throws IOException {
+        BufferedWriter bw = new BufferedWriter(new FileWriter(fileName));
+        bw.write(tex);
+        bw.close();
+    }
+
     public static void main(String[] args) throws Exception {
         // parse args
         CharStream input;
+        String output = null;
         String treeImg = null;
         if (args.length > 0) {
             input = CharStreams.fromFileName(args[0]);
-            if (args.length > 1) treeImg = args[1];
-            else treeImg = args[0].substring(0, args[0].lastIndexOf('.')) + ".png";
+            if (args.length > 1) {
+                output = args[1];
+                if (args.length > 2) treeImg = args[2];
+            }
         } else {
             input = CharStreams.fromStream(System.in);
         }
@@ -49,8 +59,10 @@ public class Translator {
         Translator t = new Translator(input);
         Visitor texifier = new Visitor("grammar/dictionary.csv");
         String tex = texifier.visit(t.tree);
-        System.out.println(tex);
 
+        if (output == null) System.out.println(tex);
+        else exportTex(output, tex);
+        
         if (treeImg != null) t.exportTree(treeImg);
     }
 }
