@@ -2,6 +2,7 @@ bookdown::pdf_book:
   toc: true
   number_sections: true
   fig_caption: true
+  fig_height: 2
   includes:
     in_header: include/preambule.tex
     before_body: parts/cover.tex

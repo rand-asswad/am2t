@@ -19,7 +19,6 @@ Le syntax ANTLR est très simple et intuitif.
 Les symboles terminaux commencent par une lettre majuscule et les variables commencent par une lettre miniscule.
 
 Voici le fichier grammaire Antlr4.
-<!--![](img/grammar_scrnshot.png)-->
 ```{bash, comment=NA}
 cat grammar/AM.g4
 ```
@@ -54,17 +53,4 @@ permettant d'executer le programme.
 
 ```{bash}
 ./am2t -h
-```
-
-## Résultats
-
-```{bash}
-echo "e^x = lim_(n->oo) (1+x/n)^n" > test/exp.txt
-./am2t -i test/exp.txt -o test/exp.katex -t test/exp.png
-```
-
-```{r}
-str <- read_file("test/exp.katex")
-#katex(str)
-knitr::include_graphics("../test/exp.png")
 ```
