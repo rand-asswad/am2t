@@ -32,10 +32,14 @@ cat test/myth.katex
 
 
 
-Regardons ensemble un exemple plus complexe
+Prenons maintenant un exemple plus complexe
 
 ```{bash}
 cat test/poisson.txt
+```
+
+Voici ce que ça donne en LaTeX.
+```{bash}
 ./am2t -i test/poisson.txt
 cat test/poisson.katex
 ```

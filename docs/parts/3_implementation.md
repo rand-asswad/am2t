@@ -27,7 +27,7 @@ cat grammar/AM.g4
 
 Voici l'arborescence du repértoire.
 ```{bash, echo=FALSE, comment=NA}
-tree -I 'docs|out|am2t.iml|test' --dirsfirst
+tree -I 'docs|out|am2t.iml|test|grammar/.antlr|*.tex' --dirsfirst
 ```
 
 La librairie antlr4 (fichier `lib/antlr-4.x.x-complete.jar`) permet de générer le paquet java **AsciiMath.antlr** à partir de notre grammaire
