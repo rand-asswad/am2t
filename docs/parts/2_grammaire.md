@@ -31,8 +31,8 @@ La grammaire peut s'écrire avec 2 variables mais elle est ambigüe.
 
 ## Les règles
 
-- e $\rightarrow$ ie + i/i + $\varepsilon$
-- i $\rightarrow$ s + s_s + s^s + s_s^s
+- e $\rightarrow$ ie + $\varepsilon$
+- i $\rightarrow$ s + s_s + s^s + s_s^s + i/i
 - s $\rightarrow$ C + LeR + Us + Bss
 
 ## Notation Backus-Naur
@@ -43,5 +43,5 @@ La grammaire peut s'écrire avec 2 variables mais elle est ambigüe.
 - L ::= ( | [ | { | (: | {: | <<
 - R ::= ) | ] | } | :) | :} | >>
 - \<s\> ::= C | L \<e\> R | U \<s\> | B \<s\> \<s\>
-- \<i\> ::= \<s\> | \<s\> _ \<s\> | \<s\> ^ \<s\> | \<s\> _ \<s\> ^ \<s\>
-- \<e\> ::= \<i\> \<e\> | \<i\> / \<i\> | $\varepsilon$
+- \<i\> ::= \<s\> | \<s\> _ \<s\> | \<s\> ^ \<s\> | \<s\> _ \<s\> ^ \<s\> | \<i\> / \<i\> 
+- \<e\> ::= \<i\> \<e\> | $\varepsilon$

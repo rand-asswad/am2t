@@ -52,5 +52,5 @@ Nous fournissons un `Makefile` permettant de compiler le code facilement ainsi q
 permettant d'executer le programme.
 
 ```{bash}
-./am2t -h
+./am2t --help
 ```

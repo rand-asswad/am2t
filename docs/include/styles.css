@@ -27,3 +27,12 @@ img {
 .caption {
 	text-align: center;
 }
+
+span.katex {
+	font-size: x-large;
+	display: inline-block;
+}
+
+div.katexR {
+	text-align: center;
+}

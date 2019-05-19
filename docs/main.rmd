@@ -3,10 +3,7 @@ title: "AsciiMath to LaTeX"
 lang: fr-FR
 ---
 ```{r setup, include=FALSE}
-# include libraries
 library(knitr)
-library(readr)
-library(katexR)
 
 # set directory
 proj <- normalizePath('..')
@@ -15,6 +12,21 @@ opts_knit$set(root.dir = proj)
 # set chunk options
 opts_chunk$set(fig.pos = 'H')
 opts_chunk$set(comment = NA)
+```
+
+```{r, include=FALSE}
+# define function for rendering latex
+render_katex<-function(filename) {
+    str <- readr::read_file(filename)
+    if (is_latex_output()) {
+        tex <- paste("$$", str, "$$", sep="")
+        asis_output(tex)
+    } else {
+        #katexR::katex(str, tag="span")
+        tex <- paste("$$", str, "$$", sep="")
+        asis_output(tex)
+    }
+}
 ```
 
 \pagebreak
