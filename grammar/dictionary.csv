@@ -68,7 +68,7 @@ grad;nabla
 /_\;triangle
 :.;therefore
 :';because
-...,ldots
+...;ldots
 CC;mathbb{C}
 RR;mathbb{R}
 QQ;mathbb{Q}
@@ -85,10 +85,12 @@ __|;rfloor
 <<;langle
 :);rangle
 >>;rangle
-{:;.
-:};.
+dx;mathrm{d}x
+dy;mathrm{d}y
+dz;mathrm{d}z
+dt;mathrm{d}t
 /;
-sum
+sum;
 prod;
 int;
 oint;

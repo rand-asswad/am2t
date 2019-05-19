@@ -9,15 +9,14 @@ SUPER   : '^' ;
 
 /* grammar rules */
 
-e	: i e               # append
-	| i OVER i          # frac
-	|                   # empty
+e	: i e?              # append
 	;
 
 i   : s                 # simple
     | s SUB s           # sub
 	| s SUPER s         # super
 	| s SUB s SUPER s   # subSup
+	| i OVER i          # frac
 	;
 
 s	: C                 # constParse
