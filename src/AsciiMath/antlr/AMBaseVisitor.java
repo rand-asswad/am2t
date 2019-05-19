@@ -24,21 +24,7 @@ public class AMBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements AMV
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitFrac(AMParser.FracContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitEmpty(AMParser.EmptyContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitSimple(AMParser.SimpleContext ctx) { return visitChildren(ctx); }
+	@Override public T visitSuper(AMParser.SuperContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -52,14 +38,21 @@ public class AMBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements AMV
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSuper(AMParser.SuperContext ctx) { return visitChildren(ctx); }
+	@Override public T visitSubSup(AMParser.SubSupContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSubSup(AMParser.SubSupContext ctx) { return visitChildren(ctx); }
+	@Override public T visitSimple(AMParser.SimpleContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitFrac(AMParser.FracContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

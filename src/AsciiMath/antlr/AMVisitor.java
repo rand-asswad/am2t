@@ -18,26 +18,12 @@ public interface AMVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAppend(AMParser.AppendContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code frac}
-	 * labeled alternative in {@link AMParser#e}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitFrac(AMParser.FracContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code empty}
-	 * labeled alternative in {@link AMParser#e}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitEmpty(AMParser.EmptyContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code simple}
+	 * Visit a parse tree produced by the {@code super}
 	 * labeled alternative in {@link AMParser#i}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSimple(AMParser.SimpleContext ctx);
+	T visitSuper(AMParser.SuperContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code sub}
 	 * labeled alternative in {@link AMParser#i}.
@@ -46,19 +32,26 @@ public interface AMVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitSub(AMParser.SubContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code super}
-	 * labeled alternative in {@link AMParser#i}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSuper(AMParser.SuperContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code subSup}
 	 * labeled alternative in {@link AMParser#i}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitSubSup(AMParser.SubSupContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code simple}
+	 * labeled alternative in {@link AMParser#i}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSimple(AMParser.SimpleContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code frac}
+	 * labeled alternative in {@link AMParser#i}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFrac(AMParser.FracContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code constParse}
 	 * labeled alternative in {@link AMParser#s}.
