@@ -16,8 +16,7 @@ def init_parser():
 def run_am2t(args):
     cmd = ['java', '-cp', 'out:lib/antlr-4.7.2-complete.jar', 'AsciiMath.Translator']
     cmd += args
-    print(' '.join(cmd))
-    process = Popen(cmd, stdout=PIPE)
+    process = Popen(cmd, stdin=PIPE, stdout=PIPE, stderr=PIPE)
     return process.communicate()
 
 if __name__ == "__main__":
@@ -37,3 +36,5 @@ if __name__ == "__main__":
         elif not args.notree:
             argv.append(basename + ".png")
     output, error = run_am2t(argv)
+    if error:
+        print(error.decode('utf-8'))
