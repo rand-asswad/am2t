@@ -26,6 +26,7 @@ public class Translator {
         tokens = new CommonTokenStream(lexer);
         parser = new AMParser(tokens);
         tree = parser.e();
+
     }
 
     private void exportTree(String fileName) {

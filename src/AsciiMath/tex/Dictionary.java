@@ -15,6 +15,7 @@ public class Dictionary {
     }
 
     public String getConst(String ascii) {
+        if ((ascii.equals("{:"))||(ascii.equals(":}"))) return ".";
         if (dic.containsKey(ascii)) return "\\" + dic.get(ascii);
         if (keywords.contains(ascii)) return "\\" + ascii;
         return ascii;
