@@ -23,6 +23,9 @@ cat test/ln.katex
 Essayons avec un autre exemple:
 
 ```{bash}
+cat test/myth.txt
+```
+```{bash}
 ./am2t -i test/myth.txt
 cat test/myth.katex
 ```
