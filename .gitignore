@@ -5,6 +5,9 @@ src/antlr/
 grammar/*.tokens
 grammar/.antlr/
 
+# flex/bison
+gnu_cpp/
+
 # VIM
 # Swap
 [._]*.s[a-v][a-z]
