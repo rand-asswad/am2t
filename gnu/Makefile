@@ -1,4 +1,4 @@
-# Makfile for simple flex/bison implementation
+# Makefile for simple flex/bison implementation
 
 CXX = g++
 LEX = flex
