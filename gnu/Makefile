@@ -1,10 +1,13 @@
+# Makfile for simple flex/bison implementation
 
 CXX = g++
 LEX = flex
 YACC = bison
 
 CXXFLAGS = #-W -Wall -Wextra -ansi -g
-LDFLAGS = 
+LDFLAGS =
+
+all: am2t
 
 # generate scanner and parser
 
@@ -20,11 +23,9 @@ scanner.cc: scanner.l
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # link executable
-test: dictionary.o
-	$(CXX) $< -o $@
 
 am2t: dictionary.o parser.o scanner.o
-	$(CXX) $(LDFLAGS) $^ -o $@ 
+	$(CXX) $(LDFLAGS) $^ -o $@
 
 clean:
 	rm -f am2t *.o parser.cc parser.h scanner.cc

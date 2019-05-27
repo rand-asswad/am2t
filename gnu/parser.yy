@@ -33,11 +33,11 @@
 
 %% /*** GRAMMAR ***/
 
-expr : E {
+expr: E {
     cout << $1 << endl;
 };
 
-E   : I E {
+E:  I E {
         $$ = concatf("%s %s", $1, $2);
     }
     | I {
@@ -45,7 +45,7 @@ E   : I E {
     }
     ;
 
-I   : S SUB S {
+I:  S SUB S {
         $$ = concatf("%s_%s", $1, $3);
     }
     | S SUPER S {
@@ -62,7 +62,7 @@ I   : S SUB S {
     }
     ;
 
-S   : LEFT E RIGHT {
+S:  LEFT E RIGHT {
         $$ = concatf("%s%s%s", getLeft($1), $2, getRight($3));
     }
     | UNARY S {
