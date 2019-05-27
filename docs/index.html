@@ -1839,14 +1839,14 @@ cat test/myth.katex</code></pre>
 <pre><code>I = int_RR e^(-x^2) dx =&gt;
 I^2 = int_(RR^2) e^(-x^2-y^2) dx dy
 = int_0^(2pi) int_0^oo r e^(-r^2) dr d theta
-= [theta]_0^(pi) * [(-e^(-r^2))/2]_0^oo
-= 2pi [0 + e^0] = 2pi
-=&gt; I = sqrt(2pi)</code></pre>
+= [theta]_0^(2pi) * [(-e^(-r^2))/2]_0^oo
+= 2pi [0 + e^0/2] = pi
+=&gt; I = sqrt(pi)</code></pre>
 <p>Voici ce que ça donne en LaTeX.</p>
 <pre class="bash"><code>./am2t -i test/poisson.txt
 cat test/poisson.katex</code></pre>
-<pre><code>I = \int_\mathbb{R} e^{- x^2} \mathrm{d}x \Rightarrow I^2 = \int_{\mathbb{R}^2} e^{- x^2 - y^2} \mathrm{d}x \mathrm{d}y = \int_0^{2 \pi} \int_0^\infty r e^{- r^2} d r d \theta = \left[\theta\right]_0^{\pi} \cdot \left[\frac{- e^{- r^2}}{2}\right]_0^\infty = 2 \pi \left[0 + e^0\right] = 2 \pi \Rightarrow I = \sqrt{2 \pi}</code></pre>
-<p><span class="math display">\[I = \int_\mathbb{R} e^{- x^2} \mathrm{d}x \Rightarrow I^2 = \int_{\mathbb{R}^2} e^{- x^2 - y^2} \mathrm{d}x \mathrm{d}y = \int_0^{2 \pi} \int_0^\infty r e^{- r^2} d r d \theta = \left[\theta\right]_0^{\pi} \cdot \left[\frac{- e^{- r^2}}{2}\right]_0^\infty = 2 \pi \left[0 + e^0\right] = 2 \pi \Rightarrow I = \sqrt{2 \pi}\]</span></p>
+<pre><code>I = \int_\mathbb{R} e^{- x^2} \mathrm{d}x \Rightarrow I^2 = \int_{\mathbb{R}^2} e^{- x^2 - y^2} \mathrm{d}x \mathrm{d}y = \int_0^{2 \pi} \int_0^\infty r e^{- r^2} d r d \theta = \left[\theta\right]_0^{2 \pi} \cdot \left[\frac{- e^{- r^2}}{2}\right]_0^\infty = 2 \pi \left[0 + \frac{e^0}{2}\right] = \pi \Rightarrow I = \sqrt{\pi}</code></pre>
+<p><span class="math display">\[I = \int_\mathbb{R} e^{- x^2} \mathrm{d}x \Rightarrow I^2 = \int_{\mathbb{R}^2} e^{- x^2 - y^2} \mathrm{d}x \mathrm{d}y = \int_0^{2 \pi} \int_0^\infty r e^{- r^2} d r d \theta = \left[\theta\right]_0^{2 \pi} \cdot \left[\frac{- e^{- r^2}}{2}\right]_0^\infty = 2 \pi \left[0 + \frac{e^0}{2}\right] = \pi \Rightarrow I = \sqrt{\pi}\]</span></p>
 <!--chapter:end:parts/4_resultats.md-->
 <!--chapter:end:parts/5_conclusion.md-->
 </div>
