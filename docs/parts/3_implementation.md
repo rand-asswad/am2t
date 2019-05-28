@@ -4,14 +4,18 @@
 
 Une implémentation d'un interpréteur dépend principalement de deux outils:
 
-- **Lexer (Tokenizer):** Un programme qui reconnait les symboles terminaux dans un texte donné. Le code définit les symboles de la grammaire.
+- **Scanner:** Un programme qui reconnait les symboles terminaux dans un texte donné. Le code définit les symboles de la grammaire.
 - **Parser:** Un programme qui analyse le syntaxe d'un texte donné. Le code définit les règles de la grammaire.
 
-On parle souvent de couple *Lexer/Parser*, les couples d'analyse syntaxique les plus établis sont lex/yacc et leurs équivalents libres flex/bison.
+On parle souvent de couple *Scanner/Parser*, les couples d'analyse syntaxique les plus établis sont lex/yacc et leurs équivalents libres flex/bison.
 
-Nous ne sommes lancé sur l'implémentation sur flex/bison, nous avons implémenté plusieurs grammaires simples comme celle d'une calculatrice.
+Nous ne sommes lancé sur l'implémentation sur flex/bison.
+Néanmoins, les parseurs générés par bison (et yacc) sont des *parseurs syntaxique __ascendant__* (bottom-up parsing)
+donc la règle *mère* menant à une règle *fille* n'est pas connue lorsque l'analyse de la dernière,
+ce qui nous a empéché d'implémenter le comportement de la règle $s\to LeR$ en fonction de sa règle mère.
 
-Or, pour notre grammaire qui est relativement compliquée, nous n'avons pas obtenue les résultats attendus, nous avons donc décidé d'utiliser **ANTLR4** qui est très efficace surtout pour débugger la grammaire.
+Nous avons donc décidé d'implémenter un *parseur syntaxique __descndant__*,
+notre choix s'est porté donc sur le framework **ANTLR4**.
 
 ## Grammaire ANTLR
 

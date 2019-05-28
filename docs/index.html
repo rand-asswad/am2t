@@ -1695,12 +1695,16 @@ de leurs rendus respectifs (e.g. <code>oo</code> pour <span class="math inline"
 <h2>Choix du langage</h2>
 <p>Une implémentation d’un interpréteur dépend principalement de deux outils:</p>
 <ul>
-<li><strong>Lexer (Tokenizer):</strong> Un programme qui reconnait les symboles terminaux dans un texte donné. Le code définit les symboles de la grammaire.</li>
+<li><strong>Scanner:</strong> Un programme qui reconnait les symboles terminaux dans un texte donné. Le code définit les symboles de la grammaire.</li>
 <li><strong>Parser:</strong> Un programme qui analyse le syntaxe d’un texte donné. Le code définit les règles de la grammaire.</li>
 </ul>
-<p>On parle souvent de couple <em>Lexer/Parser</em>, les couples d’analyse syntaxique les plus établis sont lex/yacc et leurs équivalents libres flex/bison.</p>
-<p>Nous ne sommes lancé sur l’implémentation sur flex/bison, nous avons implémenté plusieurs grammaires simples comme celle d’une calculatrice.</p>
-<p>Or, pour notre grammaire qui est relativement compliquée, nous n’avons pas obtenue les résultats attendus, nous avons donc décidé d’utiliser <strong>ANTLR4</strong> qui est très efficace surtout pour débugger la grammaire.</p>
+<p>On parle souvent de couple <em>Scanner/Parser</em>, les couples d’analyse syntaxique les plus établis sont lex/yacc et leurs équivalents libres flex/bison.</p>
+<p>Nous ne sommes lancé sur l’implémentation sur flex/bison.
+Néanmoins, les parseurs générés par bison (et yacc) sont des <em>parseurs syntaxique <strong>ascendant</strong></em> (bottom-up parsing)
+donc la règle <em>mère</em> menant à une règle <em>fille</em> n’est pas connue lorsque l’analyse de la dernière,
+ce qui nous a empéché d’implémenter le comportement de la règle <span class="math inline">\(s\to LeR\)</span> en fonction de sa règle mère.</p>
+<p>Nous avons donc décidé d’implémenter un <em>parseur syntaxique <strong>descndant</strong></em>,
+notre choix s’est porté donc sur le framework <strong>ANTLR4</strong>.</p>
 </div>
 <div id="grammaire-antlr" class="section level2">
 <h2>Grammaire ANTLR</h2>
