@@ -1852,7 +1852,37 @@ cat test/poisson.katex</code></pre>
 <pre><code>I = \int_\mathbb{R} e^{- x^2} \mathrm{d}x \Rightarrow I^2 = \int_{\mathbb{R}^2} e^{- x^2 - y^2} \mathrm{d}x \mathrm{d}y = \int_0^{2 \pi} \int_0^\infty r e^{- r^2} d r d \theta = \left[\theta\right]_0^{2 \pi} \cdot \left[\frac{- e^{- r^2}}{2}\right]_0^\infty = 2 \pi \left[0 + \frac{e^0}{2}\right] = \pi \Rightarrow I = \sqrt{\pi}</code></pre>
 <p><span class="math display">\[I = \int_\mathbb{R} e^{- x^2} \mathrm{d}x \Rightarrow I^2 = \int_{\mathbb{R}^2} e^{- x^2 - y^2} \mathrm{d}x \mathrm{d}y = \int_0^{2 \pi} \int_0^\infty r e^{- r^2} d r d \theta = \left[\theta\right]_0^{2 \pi} \cdot \left[\frac{- e^{- r^2}}{2}\right]_0^\infty = 2 \pi \left[0 + \frac{e^0}{2}\right] = \pi \Rightarrow I = \sqrt{\pi}\]</span></p>
 <!--chapter:end:parts/4_resultats.md-->
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
+<div id="developpements-possibles-du-projet" class="section level2">
+<h2>Développements possibles du projet</h2>
+<div id="wrapper-pandoc" class="section level3">
+<h3>Wrapper pandoc</h3>
+<p>L’objectif de notre interpréteur c’est de pouvoir écrire des formules mathématiques <em>lisibles</em>
+en format text et d’obtenir un bon rendu.</p>
+<p>L’outil <code>pandoc</code> permet de convertir un fichier markdown en format LaTeX et/ou HTML.
+On pourra donc préparer les documents contenant des formules mathématiques en format
+<em>AsciiMath</em> pour pandoc avec un programme similaire au notre.</p>
+<p>Il va falloir définir des délimiteurs spéciaux indicant les début/fin des formules
+comme <code>$$</code> ou <code>\[</code> pour LaTeX.</p>
+</div>
+<div id="syntaxe-et-grammaire" class="section level3">
+<h3>Syntaxe et grammaire</h3>
+<p>Il est intéressant d’implémenter dans notre interpréteur le syntaxe pour les vecteurs/matrices.</p>
+<p>Par exemple <code>((a,b),(c,d))</code> pour <span class="math inline">\(\begin{pmatrix}a&amp;b\\c&amp;d\end{pmatrix}\)</span>,
+ou bien <code>[[a],[b]]</code> pour <span class="math inline">\(\begin{bmatrix}a\\b\end{bmatrix}\)</span>.</p>
+</div>
+</div>
+<div id="apport-personnel" class="section level2">
+<h2>Apport personnel</h2>
+<p>Ce projet nous a permit de d’approfondir nos connaissances en analyse lexicale et syntaxique.
+En effet, ce projet a été l’occasion d’implémenter un interpréteur en Flex/Bison et par la suite
+decouvrir le framework ANTLR4.</p>
+<p>De plus, l’un parmi nous a voulu implémenter un interpréteur AsciiMath en LaTeX depuis
+plus qu’un an, grâce a cette matière cela a été possible sans difficulté.</p>
 <!--chapter:end:parts/5_conclusion.md-->
+</div>
 </div>
 
 
